@@ -1,0 +1,16 @@
+<%- model_class = Book -%>
+<dl class="dl-horizontal">
+  <%=image_tag(@book.foto) %>
+  <center><ul class="list-inline book">
+  <li><h4><i class="fa fa-book"></i> <%= @book.title %></h4></li>
+  <li><h4><i class="fa fa-pencil"></i> <%= @book.author %></h4></li>
+  <li><h4><i class="fa fa-indent "></i> <%= @book.category.name %></h4></li>
+  <li><h4><i class="fa fa-calendar"></i> <%= @book.created_at.strftime("%d.%m.%Y") %></h4></li>
+  <li><h4><i class="fa fa-eye"></i> 21.222 </h4></li>
+  <li><h4><%= @book.price %> <i class="fa fa-usd"></i></h4></li>
+  </ul>
+  </center>
+  <h4><%= @book.more_about %></h4>
+</dl>
+
+

@@ -1,0 +1,23 @@
+ <div class="row list-comments">
+ <% @books.each  do |book|  %>
+      <div class="thumbnail">
+          <%=link_to (image_tag(book.foto_url(:thumb).to_s)), book%>
+      <div class="caption">
+        <h4><%= book.title %></h4>
+        <ul class="list-inline text-muted">
+        <li><i class="fa fa-calendar"></i> <%= book.created_at.strftime("%d.%m.%Y") %></li>
+        <li><i class="fa fa-eye text-muted"></i> 21.222 </li>
+        <li><i class="fa fa-pencil"></i> <%= book.author %></li>
+        <li class="" ><i class="fa fa-indent text-muted"></i> <%= book.category.name %></li>
+        </ul>
+        <p><%= book.about %></p>
+        <h4>Price: <i class="fa fa-usd"></i> <%= book.price %></h4>
+        <%= button_to 'Add to Cart' , line_items_path(book_id: book),:class => 'btn btn-primary btn-block' %>
+      </div>
+  </div>
+    <% end %>
+    </div>
+
+    
+      
+      

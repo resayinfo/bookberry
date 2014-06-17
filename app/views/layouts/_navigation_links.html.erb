@@ -1,0 +1,13 @@
+<%# add navigation links to this file %>
+<% if user_signed_in? %>
+<li></li>
+  <li class="active"><%= link_to '<div class="linken"><i class="fa fa-group fa-fw"></i> Users</div>'.html_safe, users_path %></li>
+<% end %>
+<% if user_signed_in? %>
+  <li class="active"><%= link_to '<div class="linken"><i class="fa fa-cogs fa-fw"></i> Edit account</div>'.html_safe , edit_user_registration_path %></li>
+  <li class="active"><%= link_to '<div class="linken"><i class="fa fa-sign-out"></i> Logout</div>'.html_safe, destroy_user_session_path, :method=>'delete' %></li>
+<% else %>
+  <li class="active border"><%= link_to '<div class="linken"><i class="fa fa-plus-square"></i> Sign up</div>'.html_safe, new_user_registration_path %></li>
+  <li class="active"><%= link_to '<div class="linken"><i class="fa fa-sign-in"></i> Login</div>'.html_safe, new_user_session_path %></li>
+<% end %>
+

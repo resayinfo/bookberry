@@ -1,0 +1,17 @@
+<h2><i class="fa fa-shopping-cart"></i> Your Cart</h2>
+<table class="table">
+  <% @cart.line_items.each do |item| %>
+      <tr>
+        <td><p ><strong class="bir" ><%= item.quantity %></strong> <span class="glyphicon glyphicon-remove"></span> </p></td>
+        <td><p><i class="fa fa-book"></i> <%= item.book.title %></p></td>
+        <td><p><i class="fa fa-pencil"></i> <%= item.book.author %></p></td>
+        <td class="item_price"><p><%= item.total_price %> <i class="fa fa-usd" ></i></p></td>
+      </tr>
+  <% end %>
+  <tr class="total_line">
+    <td></td>
+    <td></td>
+    <td colspan="1"><p><strong>Total</strong></p></td>
+    <td class="total_cell"><p><strong><%= @cart.total_price %> <i class="fa fa-usd" ></i></strong></p></td>
+  </tr>
+ </table><%= button_to 'Empty cart', @cart, method: :delete,data: { confirm: 'Are you sure?' },:class => 'btn btn-danger' %>

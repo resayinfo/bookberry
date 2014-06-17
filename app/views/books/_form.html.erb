@@ -1,0 +1,35 @@
+<div class="authform">
+<%= form_for (@book) do |f| %>
+<h1>New book</h1>
+    <div class="form-group">
+      <%= f.label :title %>
+      <%= f.text_field :title,:required => true, :autofocus => true, class: 'form-control', placeholder: 'Book name:' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :author %>
+      <%= f.text_field :author,:required => true, class: 'form-control', placeholder: 'Book Author Name:' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :about %>
+      <%= f.text_area :about,:size => "5x5", :required => true, class: 'form-control', placeholder: 'Shortly about book' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :more_about %>
+      <%= f.text_area :more_about, :required => true, :size => "10x10", class: 'form-control', placeholder: 'More about book' %>
+    </div>
+    <div class="form-group">  
+      <%= f.label :foto %>
+      <%= f.file_field :foto, :required => true, placeholder: 'Cover of the Book'%>
+    </div>
+    <div class="form-group">
+      <%= f.label :price %>
+      <%= f.text_field :price, :required => true, class: 'form-control', placeholder: 'Price:' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :category_id %>
+     <%= collection_select(:book, :category_id, @categories, :id, :name, {:prompt => 'Select category' },:required => true, class: 'form-control') %>
+    </div>
+    <%= f.submit "Create Book", :class => 'button right' %>  
+<% end %>
+</div>
+ 
